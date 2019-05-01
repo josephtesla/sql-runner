@@ -1,0 +1,43 @@
+{
+  "name": "sql-runner",
+  "version": "1.0.0",
+  "description": "\u001b[A\u001b[Ba lightweight orm for nodejs and postgres",
+  "main": "app.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=env",
+    "start": "npm run build && node build/app.js",
+    "build": "babel src --out-dir build",
+    "test": "npm run build && mocha --timeout 10000 build/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephtesla/sql-runner.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "orm",
+    "sql"
+  ],
+  "author": "josephtesla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephtesla/sql-runner/issues"
+  },
+  "homepage": "https://github.com/josephtesla/sql-runner#readme",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-preset-env": "*",
+    "babel-core": "*",
+    "babel-node": "*"
+  },
+  "dependencies": {
+    "mysql": "^2.17.1",
+    "pg": "^7.10.0"
+  }
+}
