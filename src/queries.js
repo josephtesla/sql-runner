@@ -1,7 +1,6 @@
 
 class Model {
     constructor(table, db){
-        console.log(db)
         this.table = table
         this.db = db
         if (!table){
