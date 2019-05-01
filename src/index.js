@@ -16,7 +16,6 @@ const sql_runner =  {
         } 
         return new Pool(options)
     }
-
     
 }
 

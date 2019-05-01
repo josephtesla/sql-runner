@@ -1,6 +1,7 @@
 
 class Model {
     constructor(table, db){
+        console.log(db)
         this.table = table
         this.db = db
         if (!table){
@@ -8,7 +9,7 @@ class Model {
         }
     }
 
-    static execSqlInPromise(sql){
+    execSqlInPromise(sql){
         return new Promise((resolve, reject) => {
             this.db.query(sql).then(result => {
                 resolve(result)
@@ -29,7 +30,7 @@ class Model {
         var sql = `INSERT INTO ${this.table} (${Object.keys(documents).join(',')}) 
         VALUES (${Object.values(documents).map(each => `'${each}'`)})`
         return new Promise((resolve, reject) => {
-            Model.execSqlInPromise(sql)
+            this.execSqlInPromise(sql)
             .then(resp => {
                 let data = documents
                 data.status = "Created"
@@ -43,7 +44,7 @@ class Model {
     findById(indexId){
         let sql = `SELECT * FROM ${this.table} WHERE id='${indexId}'`
         return new Promise((resolve, reject) => {
-            Model.execSqlInPromise(sql)
+            this.execSqlInPromise(sql)
             .then(result => {
                 resolve(result.rows[0])
             }).catch(err => {
@@ -60,7 +61,7 @@ class Model {
             sql += ` WHERE ${Model.createSQLclause(documents)}`
         }
         return new Promise((resolve, reject) => {
-            Model.execSqlInPromise(sql)
+            this.execSqlInPromise(sql)
             .then(result => {
                 resolve(result.rows)
             }).catch(err => {

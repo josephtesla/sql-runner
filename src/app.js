@@ -11,5 +11,5 @@ const conn = sql_runner.connect({
 const User = sql_runner.Model('users', conn);
 
 User.find({}).then(resp => {
-    console.log(resp.rows)
+    console.log(resp)
 });
