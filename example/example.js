@@ -10,7 +10,7 @@ const conn = sql_runner.connect({
 
 const User = sql_runner.Model('users', conn);
 
-User.findOne({name: "Joseph", username:"josephtesla"})
+User.findOne(['name','username'], {name: "Joseph", username:"josephtesla"})
 .then(resp => {
     console.log(resp)
 })
