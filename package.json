@@ -4,10 +4,9 @@
   "description": "\u001b[A\u001b[Ba lightweight orm for nodejs and postgres",
   "main": "app.js",
   "scripts": {
-    "babel-node": "babel-node --presets=env",
-    "start": "npm run build && node build/app.js",
+    "start": "node example/example.js",
     "build": "babel src --out-dir build",
-    "test": "npm run build && mocha --timeout 10000 build/test/"
+    "test": "mocha --timeout 10000 test"
   },
   "repository": {
     "type": "git",
